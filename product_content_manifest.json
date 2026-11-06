@@ -1,0 +1,170 @@
+{
+  "lattice-pie": {
+    "title": "Lattice Pie",
+    "category": "Holiday Collection",
+    "editorial_source": "client",
+    "source_url": "",
+    "status": "price_tbd",
+    "confirm": "Copy from client (Nov 2026). Price TBD."
+  },
+  "pigeon-pie": {
+    "title": "Pigeon Pie",
+    "category": "Holiday Collection",
+    "editorial_source": "client",
+    "source_url": "",
+    "status": "price_tbd",
+    "confirm": "Copy from client (Nov 2026). Price TBD."
+  },
+  "toot-tower": {
+    "title": "Toot Tower",
+    "category": "Holiday Collection",
+    "editorial_source": "web-partial",
+    "source_url": "https://maisondelafork.com/shop/pomegranate-toot-tower/",
+    "status": "preview_sale",
+    "confirm": "Price $230 from client (Nov 2026). Height on page still from the historic listing (approx. 10 in)."
+  },
+  "madeleine-tower": {
+    "title": "Madeleine Tower",
+    "category": "Holiday Collection",
+    "editorial_source": "editorial-preview",
+    "source_url": "",
+    "status": "preview_sale",
+    "confirm": "Price $35 and size 7 × 15 in from client (Nov 2026)."
+  },
+  "pansy-cookie": {
+    "title": "Pansy Cookie",
+    "category": "Persian Cookie",
+    "editorial_source": "client",
+    "source_url": "https://maisondelafork.com/shop/pansie-cookie/",
+    "status": "normal",
+    "confirm": ""
+  },
+  "noon-berenji": {
+    "title": "Noon Berenji",
+    "category": "Persian Cookie",
+    "editorial_source": "client+web",
+    "source_url": "https://maisondelafork.com/shop/rice-cookie/",
+    "status": "normal",
+    "confirm": "The client description is specifically Botanical; other pattern options are shown in the original site, but do not have separate verified copy."
+  },
+  "noon-berenji-pinkland": {
+    "title": "Noon Berenji, Pinkland",
+    "category": "Persian Cookie",
+    "editorial_source": "web",
+    "source_url": "https://maisondelafork.com/shop/rice-cookie-valentine/",
+    "status": "sold_out",
+    "confirm": ""
+  },
+  "toot": {
+    "title": "Toot",
+    "category": "Persian Cookie",
+    "editorial_source": "client+web",
+    "source_url": "https://maisondelafork.com/shop/toot/",
+    "status": "normal",
+    "confirm": ""
+  },
+  "pa-derazi": {
+    "title": "Pa-Derazi",
+    "category": "Persian Cookie",
+    "editorial_source": "client",
+    "source_url": "https://maisondelafork.com/shop/pa-derazi-2/",
+    "status": "normal",
+    "confirm": ""
+  },
+  "walnut": {
+    "title": "Walnut",
+    "category": "Persian Cookie",
+    "editorial_source": "web",
+    "source_url": "https://maisondelafork.com/shop/russian-walnut/",
+    "status": "normal",
+    "confirm": "Contains dairy and nuts per official listing."
+  },
+  "coconut-macaroon": {
+    "title": "Coconut Macaroon",
+    "category": "Persian Cookie",
+    "editorial_source": "client+web",
+    "source_url": "https://maisondelafork.com/shop/coconut-macaroon/",
+    "status": "normal",
+    "confirm": ""
+  },
+  "calisson": {
+    "title": "Calisson",
+    "category": "Persian Cookie",
+    "editorial_source": "web",
+    "source_url": "https://maisondelafork.com/shop/calissons/",
+    "status": "normal",
+    "confirm": "Official listing: refrigerate airtight and enjoy within six weeks."
+  },
+  "special-gift-box": {
+    "title": "Special Gift Box",
+    "category": "Assortments",
+    "editorial_source": "web-partial",
+    "source_url": "https://maisondelafork.com/shop/special-gift-box/",
+    "status": "normal",
+    "confirm": "The official product detail page could not be fetched; only the product name/price and the three-box label in the redesign are verified. No contents or allergens invented."
+  },
+  "abrisham-collection": {
+    "title": "Abrisham Collection",
+    "category": "Assortments",
+    "editorial_source": "client+web",
+    "source_url": "https://maisondelafork.com/shop/large-mix-box/",
+    "status": "normal",
+    "confirm": ""
+  },
+  "diba-collection": {
+    "title": "Diba Collection",
+    "category": "Assortments",
+    "editorial_source": "client+web",
+    "source_url": "https://maisondelafork.com/shop/small-mix-box/",
+    "status": "normal",
+    "confirm": ""
+  },
+  "rumi-blend": {
+    "title": "Rumi Blend",
+    "category": "Tea & Gift Cards",
+    "editorial_source": "web",
+    "source_url": "https://maisondelafork.com/shop/maisontea/",
+    "status": "normal",
+    "confirm": ""
+  },
+  "gift-card": {
+    "title": "Gift Card",
+    "category": "Tea & Gift Cards",
+    "editorial_source": "web",
+    "source_url": "https://maisondelafork.com/shop/gift-card/",
+    "status": "external",
+    "confirm": ""
+  },
+  "custom-small-box": {
+    "title": "Custom Small Box",
+    "category": "Compose Your Own",
+    "editorial_source": "web",
+    "source_url": "https://maisondelafork.com/shop/small-box/",
+    "status": "external",
+    "confirm": "Official site examples per row: Pansy 9, Rice 8, Pa-Derazi 4, Walnut 4, Coconut 5."
+  },
+  "custom-large-box": {
+    "title": "Custom Large Box",
+    "category": "Compose Your Own",
+    "editorial_source": "web",
+    "source_url": "https://maisondelafork.com/shop/large-box/",
+    "status": "external",
+    "confirm": "Official site examples per row: Pansy 12, Rice 12, Pa-Derazi 8, Walnut 6, Coconut 5."
+  },
+  "green-bean-casserole-with-brie": {
+    "title": "Green Bean Casserole with Brie",
+    "category": "Holiday Collection",
+    "editorial_source": "client",
+    "source_url": "",
+    "status": "price_tbd",
+    "confirm": "Copy from client (Nov 2026). Price TBD."
+  },
+  "rainbow-potato-gratin": {
+    "title": "Rainbow Potato Gratin",
+    "category": "Holiday Collection",
+    "editorial_source": "client",
+    "source_url": "",
+    "status": "price_tbd",
+    "confirm": "Copy from client (Nov 2026). Price TBD."
+  }
+}
