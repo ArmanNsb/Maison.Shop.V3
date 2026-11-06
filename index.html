@@ -746,7 +746,7 @@ p{margin:0}
 }
 
 /* the gift box is shot from above and fills its photo: drawn smaller in the Holiday tile so it keeps the same air as its neighbours */
-.hero__col .card__img[src*="special-gift"]{transform:scale(.8);transform-origin:50% 52%}
+.hero__col .card__img[src*="special-gift"]{object-fit:contain;transform:none}
 
 /* Compose band type, Nov 2026: one clear scale, one left edge, one measure (the cards' 460 px).
    Eyebrow, title, rule, one line of copy, the two boxes, and the cookies as a quiet caption beneath them */
@@ -919,9 +919,65 @@ p{margin:0}
 
 /* phones: the two pies on the same centre line and at the same width (each photo framed its tray a little differently) */
 @media (max-width:900px){
-  .hmore .card.m-only .card__img[src*="hol-pie-sweet"]{transform-origin:51.9% 56.4%;transform:translate(-1.9%,-4.4%) scale(1.3)}
+  .hmore .card.m-only .card__img[src*="hol-pie-sweet"]{transform-origin:51.8% 52.3%;transform:translate(-1.8%,-.3%) scale(1.236)}
   .hmore .card.m-only .card__img[src*="hol-pie-savory"]{transform-origin:50.7% 50.3%;transform:translate(-.7%,1.7%) scale(1.272)}
 }
+
+/* the tower opens its page only once the collection is up, not on the intro */
+.intro:not(.is-revealed) .hero__slotlink{pointer-events:none;visibility:hidden}
+/* product names: 10% larger on desktop and tablet, 5% larger on phones */
+@media (min-width:641px){
+  html body .card__name{font-size:13.75px}
+  html body .hero__center .card__name{font-size:15.4px}
+}
+@media (min-width:641px) and (max-width:900px){ html body .hero__col .card__name{font-size:11.55px} }
+@media (max-width:640px){
+  html body .card__name{font-size:14.2px}
+  html body .hero__center .card__name{font-size:14.7px}
+  html body .hero__col .card__name{font-size:11px}
+}
+
+/* Holiday grid, desktop: each piece centred in the space between the tile's top and its name, and the two pies on one axis */
+@media (min-width:901px){
+  .hero__col .card__img[src*="hol-pie-sweet"]{translate:-4px 2px}
+  .hero__col .card__img[src*="hol-pie-savory"]{translate:-2px 7px}
+  .hero__col .card__img[src*="special-gift"]{translate:-1px 7px}
+}
+
+@media (max-width:900px){
+  .hmore .card.m-only .card__img[src*="hol-pie-sweet"]{translate:1.5px 5.5px}
+  .hmore .card.m-only .card__img[src*="hol-pie-savory"]{translate:0 5.5px}
+  .hmore .card.m-only .card__img[src*="special-gift"]{translate:0 17px}
+}
+
+/* the wax seal is larger than the emboss it lands on (it covers it, centred on it), and the plus and minus are easier to read */
+html body .card .qty .seal--n{width:50px;height:50px;min-width:50px;flex-basis:50px;margin:-5px;justify-self:center;align-self:center}
+html body .seal--n .qty__n{font-size:15px}
+html body .card.in-bag .qty{column-gap:8px}
+html body .card .qty__btn{width:28px;height:24px}
+html body .card .qty__btn svg{width:27px;height:27px;stroke-width:1.35}
+@media (max-width:640px){
+  html body .card .qty .seal--n{width:48px;height:48px;min-width:48px;flex-basis:48px;margin:-4px}
+  html body .card.in-bag .qty{column-gap:6px}
+  html body .seal--n .qty__n{font-size:15px}
+}
+
+/* Toot Tower intro, Nov 2026: one photograph (tower, bowl and bauble). The bauble is its own layer and only rocks
+   about the point where it rests on the table, so its shadow never has to move */
+.sheet__tower{-webkit-mask-image:none!important;mask-image:none!important}
+.oclip{-webkit-mask:none!important;mask:none!important}
+.oclip .orn{display:none!important}
+.orn-sh{max-width:none;height:auto}
+.intro.is-intro .orn-sh{opacity:1;animation:orn-in 1.3s ease .7s both}
+.tw-ball,.tw-ribbon{position:absolute;display:block;max-width:none;pointer-events:none}
+.tw-ball{opacity:0;transition:opacity .45s ease;will-change:transform}
+.intro.is-intro .tw-ball{opacity:1;animation:tw-rock 2s cubic-bezier(.2,.65,.25,1) .7s both,orn-in 1.1s ease .7s both}
+@keyframes tw-rock{from{transform:rotate(20deg)}to{transform:rotate(0)}}
+.intro.no-anim .tw-ball{animation:none;opacity:1}
+@media (prefers-reduced-motion:reduce){ .intro.is-intro .tw-ball{animation:none} }
+
+/* Special Gift Box: the hover close-up is shown whole too, so pointing at it only leans in a little */
+.hero__col .card__detail[src*="special-gift"],.products .card__detail[src*="special-gift"]{object-fit:contain}
 </style>
 </head>
 <body>
@@ -954,7 +1010,7 @@ p{margin:0}
 <section class="intro" aria-labelledby="holiday-title">
   <span class="intro__anchor" id="holiday" aria-hidden="true"></span>
   <div class="intro__stage">
-    <div class="sheet" aria-hidden="true"><span class="htile"></span><img class="sheet__tower" src="assets/img/hol-pomegranate-mul.jpg" alt=""><img class="orn-sh" src="assets/img/hol-ornament5-shadow.jpg" alt=""><span class="oclip"><img class="orn" src="assets/img/hol-ornament4.png" alt=""></span></div>
+    <div class="sheet" aria-hidden="true"><span class="htile"></span><img class="sheet__tower" src="assets/img/tower-mul.jpg" alt=""><img class="orn-sh" src="assets/img/tower-shadow.jpg" alt=""><span class="oclip"><span class="orn"></span><img class="tw-ball" src="assets/img/tower-ball.webp" alt=""><img class="tw-ribbon" src="assets/img/tower-ribbon.webp" alt=""></span></div>
     <div class="halo" aria-hidden="true"></div>
     <div class="dust" aria-hidden="true"></div>
     <img class="wshadow" src="assets/img/paper-shadow.png" alt="" aria-hidden="true">
@@ -962,20 +1018,20 @@ p{margin:0}
     <img class="xdeco xdeco--r" src="assets/img/deco-right-ochre.webp" alt="" aria-hidden="true">
     <div class="itext" aria-hidden="false">
       <div class="itext__l">
-        <p class="itext__eyebrow"><span>Limited Season</span></p>
+        <p class="itext__eyebrow"><span>Holiday Edition 2026</span></p>
         <p class="itext__title"><span>Our first</span><span>holiday<br class="br-d"> collection</span></p>
       </div>
       <div class="itext__r">
         <p class="itext__body"><span>Lattice pies, sweet and savory, holiday cookies, and towers for the center of the table. Made by hand, in limited quantities.</span></p>
-        <p class="itext__dates"><span>Thanksgiving · Order by <em>Nov 20</em></span><span>Christmas · Order by <em>Dec 18</em></span></p>
+        <p class="itext__dates"><span>Thanksgiving · Order by <em>Nov 23</em></span><span>Christmas · Order by <em>Dec 18</em></span></p>
       </div>
     </div>
     <div class="intro__cue" aria-hidden="true"><i></i></div>
     <div class="hero">
       <div class="hero__head">
-        <p class="shead__eyebrow"><i>/</i>Limited Season</p>
+        <p class="shead__eyebrow"><i>/</i>Holiday Edition 2026</p>
         <h1 id="holiday-title">The Holiday <br class="br-m">Collection</h1>
-        <p class="hero__dates"><span>Thanksgiving · Order by <em>Nov 20</em></span><span>Christmas · Order by <em>Dec 18</em></span></p>
+        <p class="hero__dates"><span>Thanksgiving · Order by <em>Nov 23</em></span><span>Christmas · Order by <em>Dec 18</em></span></p>
       </div>
       <div class="hero__grid">
         <div class="hero__col">
@@ -1483,7 +1539,7 @@ window.MDLFBag=(function(){
   const orn=sheet.querySelector('.orn'), oclip=sheet.querySelector('.oclip'), ornSh=sheet.querySelector('.orn-sh');
   // the bauble and its shadow, in the tower photo's own pixels (1060 wide): [left, top, width]
   // the bauble leans on the bowl, just behind its rim (48 px to the right of where it was shot); the mask is 1400 px wide
-  const ORN=[759,793,312], ORNSH=[639,1124,565], ORNR=152.7, SHO=[.5,.5,195/565], CLIPW=1400;
+  const ORN=[889,473,324], ORNSH=[522,147,926], ORNR=152.7, SHO=[.5,.5,939/926], CLIPW=1448;
   const paper=sec.querySelector('.sleeve__paper'), wins=sec.querySelectorAll('.js-win'), slot=sec.querySelector('.hero__slot');
   const pwin=sec.querySelector('.sleeve__win'), pshadow=sec.querySelector('.wshadow');
   const PH={rx:238,ry:332.7,cx:328,cy:422.9,w:656,h:845,tile:480};   // the oval inside paper-window.png / paper-shadow.png
@@ -1491,7 +1547,7 @@ window.MDLFBag=(function(){
   const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
   const SHAPE=[[50,0],[58,0,62,6,66,10],[72,6,80,8,82,16],[96,40,100,58,100,75],[100,92,96,110,82,134],[80,142,72,144,66,140],[62,144,58,150,50,150],
                [42,150,38,144,34,140],[28,144,20,142,18,134],[4,110,0,92,0,75],[0,58,4,40,18,16],[20,8,28,6,34,10],[38,6,42,0,50,0]];
-  const TW=938/1700, TX=533.5/1060, TY=868/1700, AR=1060/1700, TWX=526/1060;   // the tower (without its shadow) inside hol-pastel.jpg
+  const TW=926/1086, TX=712/1448, TY=537/1086, AR=1448/1086, TWX=524/1448;   // the tower (without its shadow) inside hol-pastel.jpg
   const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   // the order the pieces surface in: the head first, then around the tower
   sec.querySelector('.hero__head').style.setProperty('--dl','.1s');
@@ -1553,14 +1609,19 @@ window.MDLFBag=(function(){
     if(phone) w0=whP*.74/.92*AR/(TW*.8);
     const w=w0*.85*.8, th0=w0/AR*TW*.8, th=w/AR*TW, cx=phone?W/2:box.l+box.w/2, cy=phone?cyP:box.t+box.h*KY;
     img.style.width=w.toFixed(1)+'px'; img.style.left=(cx-w*TX).toFixed(1)+'px'; img.style.top=(cy-(w/AR)*TY).toFixed(1)+'px';
-    const ps=w/1060, il=cx-w*TX, it=cy-(w/AR)*TY;
+    const ps=w/1448, il=cx-w*TX, it=cy-(w/AR)*TY;
     if(photo){ const ph=[...sec.querySelectorAll('.hphoto')].find(i=>getComputedStyle(i).display!=='none');
       const [px,py,pth]=ph.dataset.t.split(',').map(Number), [pw,phh]=ph.dataset.s.split(',').map(Number);
       const S=Math.max(W/pw,H/phh), L=(W-pw*S)/2, T=(H-phh*S)*.7, k=th/(pth*S);
       Object.assign(ph.style,{width:(pw*S)+'px',left:L+'px',top:T+'px'});
       PHS={el:ph,k,tx:cx-L-k*S*px,ty:cy-T-k*S*py}; }
     Object.assign(ornSh.style,{left:(il+ORNSH[0]*ps).toFixed(1)+'px',top:(it+ORNSH[1]*ps).toFixed(1)+'px',width:(ORNSH[2]*ps).toFixed(1)+'px'});
-    Object.assign(oclip.style,{left:il.toFixed(1)+'px',top:it.toFixed(1)+'px',width:(CLIPW*ps).toFixed(1)+'px',height:(1700*ps).toFixed(1)+'px'});
+    Object.assign(oclip.style,{left:il.toFixed(1)+'px',top:it.toFixed(1)+'px',width:(1448*ps).toFixed(1)+'px',height:(1086*ps).toFixed(1)+'px'});
+    // the bauble and the ribbon tip that crosses it, cut from the same photograph; the bauble rocks about the point where it rests
+    const BALL=[889,473,324,523], RIB=[889,723,49,138], PIV=[1046,989];
+    for(const [sel,b] of [['.tw-ball',BALL],['.tw-ribbon',RIB]]){ const e=oclip.querySelector(sel); if(!e) continue;
+      Object.assign(e.style,{left:(b[0]*ps).toFixed(1)+'px',top:(b[1]*ps).toFixed(1)+'px',width:(b[2]*ps).toFixed(1)+'px',height:(b[3]*ps).toFixed(1)+'px'}); }
+    const tb=oclip.querySelector('.tw-ball'); if(tb) tb.style.transformOrigin=((PIV[0]-BALL[0])*ps).toFixed(1)+'px '+((PIV[1]-BALL[1])*ps).toFixed(1)+'px';
     oclip.style.setProperty('--ol',(ORN[0]*ps).toFixed(1)+'px'); oclip.style.setProperty('--ot',(ORN[1]*ps).toFixed(1)+'px'); oclip.style.setProperty('--ow',(ORN[2]*ps).toFixed(1)+'px');
     // phones: where the tower goes in the collection (its tile), as a move and a scale about the tower's centre
     if(phone){ for(const el of [img,oclip,ornSh]){ el.style.removeProperty('--dts'); el.style.removeProperty('--dty'); } }
@@ -1704,19 +1765,7 @@ window.MDLFBag=(function(){
 })();
 
 
-/* Toot Tower design: the Pastel Almond tower is registered to the Pomegranate photo, laid over it and cross-faded */
-(function(){
-  const sec=document.querySelector('.intro'), img=sec&&sec.querySelector('.sheet__tower'); if(!img) return;
-  const alt=img.cloneNode(); alt.src='assets/img/hol-pastel-mul.jpg'; alt.classList.add('sheet__tower--alt'); alt.setAttribute('aria-hidden','true');
-  img.after(alt);
-  const sync=()=>{ alt.setAttribute('style',img.getAttribute('style')||''); };
-  new MutationObserver(sync).observe(img,{attributes:true,attributeFilter:['style']}); sync();
-  const pick=document.querySelector('.card--feature .pick'); if(!pick) return;
-  let t1,t2;
-  pick.addEventListener('pick',e=>{ const on=e.detail==='Pastel Almond'; if(on===sec.classList.contains('tw-pastel')) return;
-    clearTimeout(t1); clearTimeout(t2); sec.classList.add('tw-dip');
-    t1=setTimeout(()=>{ sec.classList.toggle('tw-pastel',on); t2=setTimeout(()=>sec.classList.remove('tw-dip'),40); },500); });
-})();
+
 
 
 /* Compose band: magic cursor and gold dust (desktop pointers only) */

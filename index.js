@@ -96,7 +96,7 @@ window.MDLFBag=(function(){
   const orn=sheet.querySelector('.orn'), oclip=sheet.querySelector('.oclip'), ornSh=sheet.querySelector('.orn-sh');
   // the bauble and its shadow, in the tower photo's own pixels (1060 wide): [left, top, width]
   // the bauble leans on the bowl, just behind its rim (48 px to the right of where it was shot); the mask is 1400 px wide
-  const ORN=[759,793,312], ORNSH=[639,1124,565], ORNR=152.7, SHO=[.5,.5,195/565], CLIPW=1400;
+  const ORN=[889,473,324], ORNSH=[522,147,926], ORNR=152.7, SHO=[.5,.5,939/926], CLIPW=1448;
   const paper=sec.querySelector('.sleeve__paper'), wins=sec.querySelectorAll('.js-win'), slot=sec.querySelector('.hero__slot');
   const pwin=sec.querySelector('.sleeve__win'), pshadow=sec.querySelector('.wshadow');
   const PH={rx:238,ry:332.7,cx:328,cy:422.9,w:656,h:845,tile:480};   // the oval inside paper-window.png / paper-shadow.png
@@ -104,7 +104,7 @@ window.MDLFBag=(function(){
   const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
   const SHAPE=[[50,0],[58,0,62,6,66,10],[72,6,80,8,82,16],[96,40,100,58,100,75],[100,92,96,110,82,134],[80,142,72,144,66,140],[62,144,58,150,50,150],
                [42,150,38,144,34,140],[28,144,20,142,18,134],[4,110,0,92,0,75],[0,58,4,40,18,16],[20,8,28,6,34,10],[38,6,42,0,50,0]];
-  const TW=938/1700, TX=533.5/1060, TY=868/1700, AR=1060/1700, TWX=526/1060;   // the tower (without its shadow) inside hol-pastel.jpg
+  const TW=926/1086, TX=712/1448, TY=537/1086, AR=1448/1086, TWX=524/1448;   // the tower (without its shadow) inside hol-pastel.jpg
   const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   // the order the pieces surface in: the head first, then around the tower
   sec.querySelector('.hero__head').style.setProperty('--dl','.1s');
@@ -166,14 +166,19 @@ window.MDLFBag=(function(){
     if(phone) w0=whP*.74/.92*AR/(TW*.8);
     const w=w0*.85*.8, th0=w0/AR*TW*.8, th=w/AR*TW, cx=phone?W/2:box.l+box.w/2, cy=phone?cyP:box.t+box.h*KY;
     img.style.width=w.toFixed(1)+'px'; img.style.left=(cx-w*TX).toFixed(1)+'px'; img.style.top=(cy-(w/AR)*TY).toFixed(1)+'px';
-    const ps=w/1060, il=cx-w*TX, it=cy-(w/AR)*TY;
+    const ps=w/1448, il=cx-w*TX, it=cy-(w/AR)*TY;
     if(photo){ const ph=[...sec.querySelectorAll('.hphoto')].find(i=>getComputedStyle(i).display!=='none');
       const [px,py,pth]=ph.dataset.t.split(',').map(Number), [pw,phh]=ph.dataset.s.split(',').map(Number);
       const S=Math.max(W/pw,H/phh), L=(W-pw*S)/2, T=(H-phh*S)*.7, k=th/(pth*S);
       Object.assign(ph.style,{width:(pw*S)+'px',left:L+'px',top:T+'px'});
       PHS={el:ph,k,tx:cx-L-k*S*px,ty:cy-T-k*S*py}; }
     Object.assign(ornSh.style,{left:(il+ORNSH[0]*ps).toFixed(1)+'px',top:(it+ORNSH[1]*ps).toFixed(1)+'px',width:(ORNSH[2]*ps).toFixed(1)+'px'});
-    Object.assign(oclip.style,{left:il.toFixed(1)+'px',top:it.toFixed(1)+'px',width:(CLIPW*ps).toFixed(1)+'px',height:(1700*ps).toFixed(1)+'px'});
+    Object.assign(oclip.style,{left:il.toFixed(1)+'px',top:it.toFixed(1)+'px',width:(1448*ps).toFixed(1)+'px',height:(1086*ps).toFixed(1)+'px'});
+    // the bauble and the ribbon tip that crosses it, cut from the same photograph; the bauble rocks about the point where it rests
+    const BALL=[889,473,324,523], RIB=[889,723,49,138], PIV=[1046,989];
+    for(const [sel,b] of [['.tw-ball',BALL],['.tw-ribbon',RIB]]){ const e=oclip.querySelector(sel); if(!e) continue;
+      Object.assign(e.style,{left:(b[0]*ps).toFixed(1)+'px',top:(b[1]*ps).toFixed(1)+'px',width:(b[2]*ps).toFixed(1)+'px',height:(b[3]*ps).toFixed(1)+'px'}); }
+    const tb=oclip.querySelector('.tw-ball'); if(tb) tb.style.transformOrigin=((PIV[0]-BALL[0])*ps).toFixed(1)+'px '+((PIV[1]-BALL[1])*ps).toFixed(1)+'px';
     oclip.style.setProperty('--ol',(ORN[0]*ps).toFixed(1)+'px'); oclip.style.setProperty('--ot',(ORN[1]*ps).toFixed(1)+'px'); oclip.style.setProperty('--ow',(ORN[2]*ps).toFixed(1)+'px');
     // phones: where the tower goes in the collection (its tile), as a move and a scale about the tower's centre
     if(phone){ for(const el of [img,oclip,ornSh]){ el.style.removeProperty('--dts'); el.style.removeProperty('--dty'); } }
